@@ -51,7 +51,7 @@ class ForegroundService : Service() {
 
             startServer()
 
-            return START_STICKY
+            return START_NOT_STICKY
         }
 
 
