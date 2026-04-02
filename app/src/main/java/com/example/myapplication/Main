@@ -1,0 +1,32 @@
+package com.example.myapplication
+
+import android.os.Bundle
+import android.widget.Button
+import androidx.appcompat.app.AppCompatActivity
+import androidx.core.content.ContextCompat
+import android.content.Intent
+
+class MainActivity : AppCompatActivity() {
+
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+
+        setContentView(R.layout.activity_main)
+
+        val btnStart = findViewById<Button>(R.id.button)
+        val btnStop = findViewById<Button>(R.id.button2)
+
+        btnStart.setOnClickListener {
+            val serviceIntent = Intent(this, ForegroundService::class.java)
+            serviceIntent.putExtra("intentExtra", "ForegroundService")
+            ContextCompat.startForegroundService(this, serviceIntent)
+        }
+
+        btnStop.setOnClickListener {
+            val serviceIntent = Intent(this, ForegroundService::class.java)
+            serviceIntent.putExtra("intentExtra", "ForegroundService")
+            stopService(serviceIntent)
+        }
+
+    }
+}
