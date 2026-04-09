@@ -49,13 +49,12 @@ class ForegroundService : Service() {
             )
             Log.d(TAG, "startForeground: Успешно запущен")
 
-            startServer()
+            //startServer()
 
             return START_NOT_STICKY
         }
 
-
-
+        startServer()
         return START_STICKY
 }
 
